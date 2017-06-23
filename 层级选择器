@@ -1,0 +1,33 @@
+针对如下HTML结构：
+
+<!-- HTML结构 -->
+
+<div class="test-selector">
+    <ul class="test-lang">
+        <li class="lang-javascript">JavaScript</li>
+        <li class="lang-python">Python</li>
+        <li class="lang-lua">Lua</li>
+    </ul>
+    <ol class="test-lang">
+        <li class="lang-swift">Swift</li>
+        <li class="lang-java">Java</li>
+        <li class="lang-c">C</li>
+    </ol>
+</div>
+选出相应的内容并观察效果：
+
+'use strict';
+var selected = null;
+
+// 分别选择所有语言，所有动态语言，所有静态语言，JavaScript，Lua，C等:
+//selected = $('.test-lang li')
+//selected = $('ul.test-lang li')
+//selected = $('ol.test-lang li')
+selected = $('.lang-lua, .lang-c')
+
+// 高亮结果:
+if (!(selected instanceof jQuery)) {
+    return alert('不是有效的jQuery对象!');
+}
+$('#test-jquery').find('*').css('background-color', '');
+selected.css('background-color', '#ffd351');
