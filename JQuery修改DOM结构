@@ -5,7 +5,8 @@
 });
 
 var list = $('#test-div li').get().sort(function (x, y){
-    return $(x).text() < $(y).text() ? -1 : 1;
+    return $(x).text() < $(y).text() ? -1 : 1;  // $(x) DOM对象转换JQuery对象，
+    // return x.innerText < y.innerText? -1: 1;
 
 });
 $('#test-div ul').append(list);
