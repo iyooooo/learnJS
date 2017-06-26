@@ -1,0 +1,24 @@
+'use strict';
+
+['Pascal', 'Lua', 'Ruby'].forEach(function (x) {
+    $('#test-div ul').append(`<li><span>${x}</span></li>`);
+});
+
+var list = $('#test-div li').get().sort(function (x, y){
+    return $(x).text() < $(y).text() ? -1 : 1;
+
+});
+$('#test-div ul').append(list);
+
+get()作用：
+1、不能直接对JQuery对象排序，使用get()返回DOM对象数组（或配合map()返回text()），对DOM对象排序。
+2、document.getElementById('test-div').getElementsByTagName('li')直接返回DOM对象<li>，不需再用get()转换。
+
+['Pascal', 'Lua', 'Ruby'].forEach(function (x) {
+    $('#test-div ul').append(`<li><span>${x}</span></li>`);
+});
+var list = Array.from(document.getElementById('test-div').getElementsByTagName('li'));
+list.sort(function(x,y) {
+   return x.innerText < y.innerText? -1: 1;
+});
+$('#test-div ul').append($(list));  // 不要忘了替换原来的<li>
