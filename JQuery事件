@@ -1,0 +1,34 @@
+selectAll.click(function () {
+    langs.prop('checked', $(this).is(':checked')); // langs.attr(), 只勾选部分，不晓得啥毛病
+    hideOrShow($(this).is(':checked'));
+});
+
+langs.click(function() {
+    isSelectAll();  
+});
+
+invertSelect.click(function () {
+    /*
+    langs.map(function(){
+        $(this).prop('checked', !$(this).is(':checked'));
+    });
+    isSelectAll();
+    */
+    langs.click();   //单独这句也可以, 神奇。 逐一点击lang（相当于挨个修改langchecked）
+});
+
+function isSelectAll() {
+    var isAll = langs.filter(':checked').length === langs.length; 
+    selectAll.prop('checked', isAll);
+    hideOrShow(isAll);
+}
+
+function hideOrShow(hidden) {
+    if (hidden) {
+        selectAllLabel.hide();
+        deselectAllLabel.show();
+    } else {
+        selectAllLabel.show();
+        deselectAllLabel.hide();
+    }
+}
