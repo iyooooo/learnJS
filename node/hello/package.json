@@ -1,0 +1,27 @@
+{
+    "name": "hello-sequelize",
+    "version": "1.0.0",
+    "description": "Hello Sequelize example with async",
+    "main": "study.js",
+    "scripts": {
+        "start": "node --use_strict study.js"
+    },
+    "keywords": [
+        "sequelize",
+        "async"
+    ],
+    "author": "Fan Yang",
+    "license": "Apache-2.0",
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/iyooooo/learnJS.git"
+    },
+    "dependencies": {
+        "express": "^4.15.3",
+        "express-session": "^1.15.3",
+        "passport": "^0.3.2",
+        "passport-github": "^1.1.0",
+        "sequelize": "^3.24.1",
+        "sqlite3": "^3.1.8"
+    }
+}
